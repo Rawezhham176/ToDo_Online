@@ -1,6 +1,9 @@
 document.querySelector('#push').onclick = function () {
     if (document.querySelector('#newTask input').value == 0) {
-        window.alert("Please enter your Task!?")
+        document.querySelector('#customAlert').style.display = "relative";
+        if (document.querySelector(".content button").onclick) {
+            document.getElementById("customAlert").style.display = "none";
+        }
     } else {
         document.querySelector("#tasks").innerHTML +=
             `
