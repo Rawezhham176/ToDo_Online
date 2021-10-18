@@ -1,8 +1,16 @@
+var customAlert = document.getElementById("customAlert")
+var ok_alert = document.querySelector(".ok_alert")
+
+function showAlert() {
+    customAlert.style.display = "block"
+}
+
+
 document.querySelector('#push').onclick = function () {
     if (document.querySelector('#newTask input').value == 0) {
-        document.querySelector('#customAlert').style.display = "relative";
-        if (document.querySelector(".content button").onclick) {
-            document.getElementById("customAlert").style.display = "none";
+        showAlert()
+        document.querySelector(".ok_alert").onclick = function () {
+            customAlert.style.display = "none"
         }
     } else {
         document.querySelector("#tasks").innerHTML +=
@@ -35,3 +43,16 @@ document.querySelector('#push').onclick = function () {
 
     }
 }
+
+const menuBtn = document.querySelector(".hamburger")
+let menuOpen = false
+
+menuBtn.addEventListener("click", () => {
+    if (!menuOpen) {
+        menuBtn.classList.add("open")
+        menuOpen = true
+    } else {
+        menuBtn.classList.remove("open")
+        menuOpen = false
+    }
+})
